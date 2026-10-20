@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alex Rivera | Data Analyst</title>
+<title>Chana Shifrin | Data Analyst</title>
 <meta name="description" content="Data analyst portfolio: SQL, dashboards, and Python analysis that turn messy data into decisions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,230 +11,139 @@
 <style>
 :root{
   --bg:#F2F6F8; --surface:#FFFFFF; --ink:#12202B; --muted:#52636F; --line:#D5DEE4;
-  --accent:#0B6E8E; --hi:#E08A00; --bar:#B9CCD6;
-  color-scheme:light;
+  --accent:#0B6E8E; --hi:#E08A00; --bar:#B9CCD6; color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
   :root{--bg:#0E1A22; --surface:#15252F; --ink:#E8EFF3; --muted:#9BB0BC; --line:#2A3E4A;
         --accent:#4FB8D9; --hi:#F2A93B; --bar:#33505F; color-scheme:dark;}
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
-a{color:var(--accent);text-underline-offset:3px}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--hi);outline-offset:3px;border-radius:4px}
-.wrap{max-width:980px;margin:0 auto;padding:0 24px}
-header{padding:20px 0;border-bottom:1px solid var(--line)}
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.name{font-weight:700;letter-spacing:-.01em}
-nav{display:flex;gap:22px}
-nav a{color:var(--muted);text-decoration:none;font-weight:500}
-nav a:hover{color:var(--ink)}
-
-/* hero */
-.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
-h1{font-size:clamp(34px,5.4vw,56px);line-height:1.08;letter-spacing:-.025em;margin:0 0 20px;font-weight:700}
-.lede{color:var(--muted);max-width:46ch;margin:0 0 28px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;text-decoration:none;border:1.5px solid var(--accent)}
-.btn.primary{background:var(--accent);color:var(--bg)}
-.btn.ghost{color:var(--accent)}
-.btn:hover{filter:brightness(1.08)}
-.hero-chart{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 20px 14px}
-.hero-chart p{margin:0 0 10px;font-weight:600;font-size:15px}
-.hero-chart small{color:var(--muted);display:block;margin-top:6px;font-size:13px}
-svg{display:block;width:100%;height:auto}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);
+  font:400 16px/1.5 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent);text-underline-offset:3px;font-weight:600}
+a:focus-visible{outline:3px solid var(--hi);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;width:100%}
+header{padding:18px 0;border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap}
+.name{font-weight:700;font-size:18px;letter-spacing:-.01em}
+.contact{display:flex;gap:20px;flex-wrap:wrap}
+main{flex:1;display:flex;align-items:center;padding:28px 0}
+.intro{margin-bottom:24px}
+h1{font-size:clamp(26px,3.6vw,38px);line-height:1.12;letter-spacing:-.025em;margin:0 0 8px;font-weight:700}
+.lede{color:var(--muted);margin:0 0 14px;max-width:62ch}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.skills li,.tags li{font-size:13px;font-weight:500;padding:2px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column}
+svg{display:block;width:100%;height:auto;margin-bottom:12px}
 .axis{stroke:var(--line);stroke-width:1}
-.t{fill:var(--muted);font:12px "IBM Plex Sans",sans-serif}
-.b{fill:var(--bar)} .b.h{fill:var(--accent)} .ln{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.t{fill:var(--muted);font:11px "IBM Plex Sans",sans-serif}
+.b{fill:var(--bar)} .b.h{fill:var(--accent)}
+.ln{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .dot{fill:var(--hi)} .ci{stroke:var(--ink);stroke-width:2}
+h3{font-size:17px;line-height:1.3;letter-spacing:-.01em;margin:0 0 8px}
+.card p{margin:0 0 12px;color:var(--muted);font-size:14.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;padding:0;list-style:none}
+.links{display:flex;gap:16px;margin-top:auto;font-size:14.5px}
 
-/* sections */
-section{padding:56px 0;border-top:1px solid var(--line)}
-h2{font-size:28px;letter-spacing:-.02em;margin:0 0 8px}
-.sub{color:var(--muted);margin:0 0 36px}
-.project{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;padding:28px 0;border-top:1px solid var(--line);align-items:center}
-.project:first-of-type{border-top:0;padding-top:0}
-.thumb{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
-h3{font-size:22px;line-height:1.25;letter-spacing:-.015em;margin:0 0 10px}
-.project p{margin:0 0 14px;color:var(--muted);max-width:56ch}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0;list-style:none}
-.tags li{font-size:14px;font-weight:500;padding:3px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
-.links{display:flex;gap:20px;font-weight:600}
-
-/* about */
-.about{display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
-.about p{margin:0 0 14px}
-.skills h3{font-size:17px;margin:0 0 6px}
-.skills p{margin:0 0 18px;color:var(--muted)}
-.contact{text-align:left}
-.contact a.big{font-size:clamp(22px,4vw,34px);font-weight:700;letter-spacing:-.02em}
-footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
-
-@media (max-width:760px){
-  .hero,.project,.about{grid-template-columns:1fr}
-  .hero{padding-top:44px;gap:32px}
-  .project{gap:20px}
-  body{font-size:16px}
-}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.grid{align-items:start}
+.card{transition:border-color .2s}
+.card:hover,.card:focus-within{border-color:var(--accent)}
+.card:focus-visible{outline:3px solid var(--hi);outline-offset:3px}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.more-in{overflow:hidden;min-height:0}
+.card:hover .more,.card:focus-within .more{grid-template-rows:1fr}
+.more p{font-size:14px;margin:0 0 8px}
+.more strong{color:var(--ink);font-weight:600}
+.hint{margin:14px 0 0;color:var(--muted);font-size:13px}
+@media (hover:none),(max-width:900px){.more{grid-template-rows:1fr}.hint{display:none}}
+@media (prefers-reduced-motion:reduce){.more{transition:none}}
+footer{padding:14px 0 20px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+@media (max-width:900px){.grid{grid-template-columns:1fr}main{align-items:flex-start}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <span class="name">Alex Rivera</span>
-    <nav aria-label="Main">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <span class="name">Chana Shifrin</span>
+    <div class="contact">
+      <a href="mailto:cshifrin16@gmail.com">cshifrin16@gmail.com</a>
+      <a href="https://github.com/ChanaShifrin">GitHub</a>
+    </div>
   </div>
 </header>
 
 <main>
 <div class="wrap">
-
-  <!-- HERO -->
-  <div class="hero">
-    <div>
-      <h1>I find the story in the data and tell it to the people who decide.</h1>
-      <p class="lede">Data analyst with a focus on SQL, dashboards, and experiment analysis. Below are three projects, each starting from a business question and ending with a recommendation.</p>
-      <div class="actions">
-        <a class="btn primary" href="#projects">See my work</a>
-        <a class="btn ghost" href="#contact">Get in touch</a>
-      </div>
-    </div>
-    <!-- Hero chart (mock data) -->
-    <figure class="hero-chart" style="margin:0">
-      <p>Average review score by delivery delay</p>
-      <svg viewBox="0 0 320 190" role="img" aria-label="Bar chart: review score drops as delivery delay grows, from 4.3 stars on time to 2.1 stars when more than 7 days late">
-        <line class="axis" x1="10" y1="150" x2="310" y2="150"/>
-        <rect class="b" x="22"  y="30"  width="48" height="120" rx="3"/>
-        <rect class="b" x="92"  y="45"  width="48" height="105" rx="3"/>
-        <rect class="b" x="162" y="82"  width="48" height="68"  rx="3"/>
-        <rect class="b h" x="232" y="108" width="48" height="42" rx="3"/>
-        <text class="t" x="46"  y="24"  text-anchor="middle">4.3</text>
-        <text class="t" x="116" y="39"  text-anchor="middle">3.9</text>
-        <text class="t" x="186" y="76"  text-anchor="middle">3.0</text>
-        <text class="t" x="256" y="102" text-anchor="middle">2.1</text>
-        <text class="t" x="46"  y="170" text-anchor="middle">On time</text>
-        <text class="t" x="116" y="170" text-anchor="middle">1–3 days</text>
-        <text class="t" x="186" y="170" text-anchor="middle">4–7 days</text>
-        <text class="t" x="256" y="170" text-anchor="middle">7+ days</text>
-      </svg>
-      <small>From Project 1. Sample figures.</small>
-    </figure>
+  <div class="intro">
+    <h1>I find the story in the data and tell it to the people who decide.</h1>
+    <p class="lede">Data analyst focused on SQL, dashboards, and experiment analysis. Each project below starts with a business question and ends with a recommendation.</p>
+    <ul class="skills" aria-label="Skills">
+      <li>SQL</li><li>Python (pandas)</li><li>Tableau</li><li>Power BI</li><li>Excel</li><li>A/B testing</li>
+    </ul>
   </div>
 
-  <!-- PROJECTS -->
-  <section id="projects" aria-labelledby="projects-h">
-    <h2 id="projects-h">Projects</h2>
-    <p class="sub">Each one answers a real business question. Click through for the code, data, and full write-up.</p>
-
-    <!-- PROJECT 1 -->
-    <article class="project">
-      <div class="thumb">
-        <svg viewBox="0 0 300 150" role="img" aria-label="Retention by signup cohort, declining from 100 percent to about 30 percent over six months">
-          <line class="axis" x1="10" y1="130" x2="290" y2="130"/>
-          <polyline class="ln" points="20,20 70,62 120,84 170,98 220,106 270,110"/>
-          <circle class="dot" cx="270" cy="110" r="5"/>
-          <text class="t" x="20" y="146">Month 0</text>
-          <text class="t" x="240" y="146">Month 5</text>
-          <text class="t" x="206" y="98" >31%</text>
-        </svg>
-      </div>
-      <div>
-        <h3>Late deliveries are quietly costing the marketplace its repeat customers</h3>
-        <p>Analyzed 100K orders across 9 tables to see how delivery delays affect reviews and repeat purchases. Customers whose first order arrived more than a week late were far less likely to order again. Recommended a delivery-promise buffer for the three worst regions.</p>
-        <ul class="tags"><li>PostgreSQL</li><li>CTEs</li><li>Window functions</li><li>Cohort analysis</li></ul>
-        <div class="links"><a href="#">View on GitHub</a><a href="#">Read the write-up</a></div>
-      </div>
+  <div class="grid">
+    <!-- PROJECT 1 (sample) -->
+    <article class="card" tabindex="0">
+      <svg viewBox="0 0 300 110" role="img" aria-label="Review score drops as delivery delay grows">
+        <line class="axis" x1="10" y1="92" x2="290" y2="92"/>
+        <rect class="b" x="30"  y="14" width="42" height="78" rx="3"/>
+        <rect class="b" x="100" y="26" width="42" height="66" rx="3"/>
+        <rect class="b" x="170" y="48" width="42" height="44" rx="3"/>
+        <rect class="b h" x="240" y="64" width="42" height="28" rx="3"/>
+        <text class="t" x="51"  y="106" text-anchor="middle">On time</text>
+        <text class="t" x="261" y="106" text-anchor="middle">7+ days</text>
+      </svg>
+      <h3>Late deliveries are quietly costing the marketplace its repeat customers</h3>
+      <p>Analyzed 100K orders across 9 tables. Customers whose first order arrived over a week late rarely ordered again.</p>
+      <ul class="tags"><li>PostgreSQL</li><li>Cohort analysis</li></ul>
+      <div class="more"><div class="more-in"><p><strong>Question:</strong> Do late deliveries hurt repeat purchases?</p><p><strong>Approach:</strong> Joined 9 tables, built signup cohorts, and compared retention by delay bucket with window functions.</p><p><strong>Result:</strong> Orders 7+ days late averaged 2.1 stars vs. 4.3 on time.</p><p><strong>Recommendation:</strong> Add a delivery-promise buffer in the three worst regions.</p></div></div>
+      <div class="links"><a href="#">GitHub</a><a href="#">Write-up</a></div>
     </article>
 
-    <!-- PROJECT 2 -->
-    <article class="project">
-      <div class="thumb">
-        <svg viewBox="0 0 300 150" role="img" aria-label="Monthly sales trend rising through the year with a dip in August">
-          <line class="axis" x1="10" y1="130" x2="290" y2="130"/>
-          <rect class="b" x="20"  y="90" width="16" height="40"/>
-          <rect class="b" x="45"  y="82" width="16" height="48"/>
-          <rect class="b" x="70"  y="76" width="16" height="54"/>
-          <rect class="b" x="95"  y="70" width="16" height="60"/>
-          <rect class="b" x="120" y="62" width="16" height="68"/>
-          <rect class="b" x="145" y="58" width="16" height="72"/>
-          <rect class="b h" x="170" y="86" width="16" height="44"/>
-          <rect class="b" x="195" y="52" width="16" height="78"/>
-          <rect class="b" x="220" y="44" width="16" height="86"/>
-          <rect class="b" x="245" y="36" width="16" height="94"/>
-          <text class="t" x="20" y="146">Jan</text>
-          <text class="t" x="244" y="146">Oct</text>
-          <text class="t" x="150" y="48">Aug dip</text>
-        </svg>
-      </div>
-      <div>
-        <h3>A sales dashboard a regional VP can read in 30 seconds</h3>
-        <p>Built an interactive dashboard that leads with three numbers: revenue vs. target, margin, and top-losing product lines. Filters by region and rep. It surfaced a discount pattern that was eroding margin in one region.</p>
-        <ul class="tags"><li>Tableau</li><li>Dashboard design</li><li>KPI definition</li><li>Excel</li></ul>
-        <div class="links"><a href="#">Open live dashboard</a><a href="#">Read the write-up</a></div>
-      </div>
+    <!-- PROJECT 2 (sample) -->
+    <article class="card" tabindex="0">
+      <svg viewBox="0 0 300 110" role="img" aria-label="Monthly sales rising with a dip in August">
+        <line class="axis" x1="10" y1="92" x2="290" y2="92"/>
+        <polyline class="ln" points="25,70 55,64 85,58 115,52 145,48 175,72 205,40 235,32 265,24"/>
+        <circle class="dot" cx="175" cy="72" r="5"/>
+        <text class="t" x="25" y="106">Jan</text>
+        <text class="t" x="250" y="106">Oct</text>
+        <text class="t" x="188" y="76">Aug dip</text>
+      </svg>
+      <h3>A sales dashboard a regional VP can read in 30 seconds</h3>
+      <p>Leads with revenue vs. target, margin, and top-losing product lines. Surfaced a discount pattern eroding margin in one region.</p>
+      <ul class="tags"><li>Tableau</li><li>KPI design</li></ul>
+      <div class="more"><div class="more-in"><p><strong>Question:</strong> Which regions and products are missing target, and why?</p><p><strong>Approach:</strong> Defined three KPIs with the sales team, then built filters by region and rep.</p><p><strong>Result:</strong> Heavy discounting in one region was cutting margin by about 4 points.</p><p><strong>Recommendation:</strong> Cap discounts and review that region monthly.</p></div></div>
+      <div class="links"><a href="#">Live dashboard</a><a href="#">Write-up</a></div>
     </article>
 
-    <!-- PROJECT 3 -->
-    <article class="project">
-      <div class="thumb">
-        <svg viewBox="0 0 300 150" role="img" aria-label="A/B test result: variant conversion of 6.1 percent versus control 5.2 percent, with confidence intervals that do not overlap much">
-          <line class="axis" x1="10" y1="130" x2="290" y2="130"/>
-          <rect class="b" x="70"  y="72" width="64" height="58" rx="3"/>
-          <rect class="b h" x="170" y="56" width="64" height="74" rx="3"/>
-          <line class="ci" x1="102" y1="62" x2="102" y2="82"/>
-          <line class="ci" x1="202" y1="44" x2="202" y2="68"/>
-          <text class="t" x="102" y="146" text-anchor="middle">Control 5.2%</text>
-          <text class="t" x="202" y="146" text-anchor="middle">Variant 6.1%</text>
-        </svg>
-      </div>
-      <div>
-        <h3>Did the new checkout button actually lift conversions?</h3>
-        <p>Cleaned a messy experiment export, checked for sample-ratio problems, and ran a two-proportion test. The variant lifted conversion by 0.9 points. I flagged that the effect was concentrated on mobile and recommended a staged rollout.</p>
-        <ul class="tags"><li>Python</li><li>pandas</li><li>Hypothesis testing</li><li>Matplotlib</li></ul>
-        <div class="links"><a href="#">View notebook</a><a href="#">View on GitHub</a></div>
-      </div>
+    <!-- PROJECT 3 (sample) -->
+    <article class="card" tabindex="0">
+      <svg viewBox="0 0 300 110" role="img" aria-label="A/B test: variant 6.1 percent conversion versus control 5.2 percent">
+        <line class="axis" x1="10" y1="92" x2="290" y2="92"/>
+        <rect class="b" x="70"  y="44" width="64" height="48" rx="3"/>
+        <rect class="b h" x="170" y="30" width="64" height="62" rx="3"/>
+        <line class="ci" x1="102" y1="36" x2="102" y2="52"/>
+        <line class="ci" x1="202" y1="22" x2="202" y2="40"/>
+        <text class="t" x="102" y="106" text-anchor="middle">Control 5.2%</text>
+        <text class="t" x="202" y="106" text-anchor="middle">Variant 6.1%</text>
+      </svg>
+      <h3>Did the new checkout button actually lift conversions?</h3>
+      <p>Checked for sample-ratio problems, then ran a two-proportion test. Lift was concentrated on mobile, so I recommended a staged rollout.</p>
+      <ul class="tags"><li>Python</li><li>Hypothesis testing</li></ul>
+      <div class="more"><div class="more-in"><p><strong>Question:</strong> Did the new checkout button lift conversion?</p><p><strong>Approach:</strong> Cleaned the export, checked the traffic split, then ran a two-proportion test.</p><p><strong>Result:</strong> Conversion rose from 5.2% to 6.1%, mostly on mobile.</p><p><strong>Recommendation:</strong> Roll out in stages, starting with mobile.</p></div></div>
+      <div class="links"><a href="#">Notebook</a><a href="#">GitHub</a></div>
     </article>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" aria-labelledby="about-h">
-    <h2 id="about-h">About</h2>
-    <div class="about">
-      <div>
-        <p>I’m a data analyst who likes questions that start with “why did that happen?” I enjoy the unglamorous part of the job: cleaning data, checking assumptions, and making sure the number on the slide is the right number.</p>
-        <p>Before analytics I worked in [your previous field], which taught me how to talk to people who aren’t data people. I’m looking for a team where analysis feeds real decisions.</p>
-      </div>
-      <div class="skills">
-        <h3>Query and analyze</h3>
-        <p>SQL (PostgreSQL, MySQL), Python (pandas, NumPy), Excel</p>
-        <h3>Visualize and communicate</h3>
-        <p>Tableau, Power BI, Matplotlib, written recommendations</p>
-        <h3>Methods</h3>
-        <p>Cohort analysis, A/B testing, data cleaning, KPI design</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact" aria-labelledby="contact-h">
-    <h2 id="contact-h">Contact</h2>
-    <p class="sub">Open to data analyst roles. The fastest way to reach me is email.</p>
-    <p><a class="big" href="mailto:you@example.com">you@example.com</a></p>
-    <p class="links"><a href="#">LinkedIn</a><a href="#">GitHub</a><a href="#">Resume (PDF)</a></p>
-  </section>
-
+  </div>
+  <p class="hint">Hover over a project, or tab to it, for details.</p>
 </div>
 </main>
 
 <footer>
-  <div class="wrap">© 2026 Alex Rivera. Sample projects shown are placeholders.</div>
+  <div class="wrap">© 2026 Chana Shifrin. Sample projects shown are placeholders.</div>
 </footer>
 
 </body>
