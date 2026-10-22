@@ -38,13 +38,16 @@ a{color:var(--cm)}
 .tab[aria-selected="true"]{color:var(--cm);border-bottom-color:var(--cm)}
 .tabline{border-bottom:1px solid var(--ln)}
 
-main{flex:1;padding-top:16px;padding-bottom:18px}
-.tg{font:600 clamp(20px,2.6vw,27px)/1.22 var(--serif);margin:0 0 4px;min-height:2.5em}
-@media (min-width:760px){.tg{min-height:1.25em}}
+main{flex:1}
+#panel{padding-top:28px;padding-bottom:18px}
+#panel.isall{padding-top:18px}
+#panel.isall .tg,#panel.isall .ld{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);margin:0;min-height:0}
+.tg{font:600 clamp(20px,2.6vw,27px)/1.15 var(--serif);margin:0 0 0;min-height:2.3em}
+@media (min-width:760px){.tg{min-height:1.15em}}
 .cur{display:inline-block;width:2px;height:.95em;background:var(--cm);margin-left:2px;vertical-align:-.12em;animation:blink 1.05s steps(1) infinite}
 .static .cur{animation:none;opacity:0}
 @keyframes blink{50%{opacity:0}}
-.ld{margin:0 0 9px;color:var(--mu);font-size:14px;max-width:70ch}
+.ld{margin:0 0 9px;line-height:1.45;color:var(--mu);font-size:14px;max-width:70ch}
 
 /* controls */
 .ctl{display:flex;flex-wrap:nowrap;gap:6px 14px;align-items:flex-start;margin-bottom:4px}.chips{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 0;min-width:0}
@@ -287,7 +290,7 @@ function setTab(t,focus){
   tab=t;
   ['analytics','ml','all'].forEach(function(k){var b=$('t-'+k),on=k===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;});
   $('panel').setAttribute('aria-labelledby','t-'+t);
-  $('ld').textContent=ROLES[t].lede;
+  $('ld').textContent=ROLES[t].lede;$('panel').classList.toggle('isall',t==='all');
   document.title='Chana Shifrin | '+TABS[t].label;
   renderChips();renderResults();runTagline();
   if(focus)$('t-'+t).focus();
